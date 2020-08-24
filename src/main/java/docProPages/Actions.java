@@ -189,7 +189,7 @@ public class Actions extends ProjectMethods {
 			String confirmApproverPwd) throws InterruptedException {
 
 		switchToFrame(eleLHSFrame);
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		click(eleClickOnRequestsNeedingApproval, "Requests Needing Approval Tab");
 		switchToFrame(eleActionsFrame);
 		Thread.sleep(3000);

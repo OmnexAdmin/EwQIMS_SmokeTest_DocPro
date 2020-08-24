@@ -4,6 +4,7 @@ package main.java.docProPages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -100,11 +101,11 @@ public class DocProGroups extends ProjectMethods {
 		switchToFrame(eleLHSFrame);
 		Thread.sleep(10000);
 		click(eleclickOnAddButton, "Add button");
-		System.out.println("Add button is clicked");
+	
 		Thread.sleep(5000);
 		type(eleEnterGroupName, groupName);
 
-		System.out.println("group name is entered");
+	
 		Thread.sleep(2000);
 
 		click(eleclickOnSaveButton, "Save button");
@@ -113,7 +114,12 @@ public class DocProGroups extends ProjectMethods {
 		type(eleSearchGroupName, groupName);
 		click(eleCLickOnSearchFilter, "Search filter");
 		click(eleCLickonEqualsfilter, "Equals filter in search criteria");
-		driver.findElementById("gs_groupname").sendKeys(Keys.ENTER);
+	try {
+		driver.findElementById("gs_groupname").sendKeys(Keys.ENTER);}
+	catch (WebDriverException e){
+   
+        reportStep("WebDriverException" + e.getMessage(), "FAIL");
+    } 
 		Thread.sleep(2000);
 		click(eleClickOnAddUsersIcon, "Add users icon");
 		System.out.println("The number of frames in this pages is" + driver.findElements(By.xpath("//iframe")).size());
