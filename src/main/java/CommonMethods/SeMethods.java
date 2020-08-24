@@ -443,7 +443,7 @@ public class SeMethods extends Reporter implements WdMethods {
     public void switchToFrame(WebElement ele) {
         try {
             // driver.switchTo().frame(ele);
-            WebDriverWait wait = new WebDriverWait(driver, 20);
+            WebDriverWait wait = new WebDriverWait(driver, 30);
             wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(ele));
 
             logger.info("switch In to the Frame");
@@ -782,13 +782,14 @@ public class SeMethods extends Reporter implements WdMethods {
         }
 
     }
+    
+    
 
     public void clickOnDocumentNumberLink(String prefix, String documentNumber) {
 
         try {
 
-            WebElement documentNumberLink = locateElement("xpath",
-                    "//a[text()='" + prefix + "" + documentNumber + "']");
+            WebElement documentNumberLink = locateElement("xpath","//a[text()='" + prefix + "" + documentNumber + "']");
             click(documentNumberLink, "Document number link");
 
             logger.info("The specific document number   : " + prefix + documentNumber + " is clicked");
@@ -801,8 +802,24 @@ public class SeMethods extends Reporter implements WdMethods {
             logger.debug("The specific document number  : " + prefix + documentNumber + " is not clicked ");
             reportStep("WebDriverException" + e.getMessage(), "FAIL");
         }
-
     }
+
+    public void validateRightsAssignedtotheUser(String code) {
+       try {
+           WebElement eleVerifyRightsAssigned = driver.findElementByXPath("//td[text()='" + code + "']");
+           verifyDisplayed(eleVerifyRightsAssigned,"Assigned User");
+           logger.info("The rights has been assigned to the user who has code"+code);
+           reportStep("The rights has been assigned to the user who has code"+code, "PASS");
+
+           
+    } catch (WebDriverException e){
+        logger.debug("The rights is not assigned to the user who has code"+code);
+        reportStep("WebDriverException" + e.getMessage(), "FAIL");
+    } 
+        
+    }
+     
+ 
 
     public static void main(String[] args) {
 
