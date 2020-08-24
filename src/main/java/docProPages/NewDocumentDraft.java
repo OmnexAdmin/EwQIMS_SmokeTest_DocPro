@@ -127,7 +127,12 @@ public class NewDocumentDraft extends ProjectMethods {
 			type(eleEnterCode, code);
 			click(eleCLickOnSearchFilter, "Search filter");
 			click(eleCLickonEqualsfilter, " Equals filter in search criteria");
-			driver.findElementById("gs_Empcode").sendKeys(Keys.ENTER);
+			try{
+			    driver.findElementById("gs_Empcode").sendKeys(Keys.ENTER);
+			}
+			catch (WebDriverException e){
+		        reportStep("WebDriverException" + e.getMessage(), "FAIL");
+		    } 
 			click(eleClickOnUserToSelect, "Select user checkbox");
 			click(eleClickOnDone, "Done button");
 			switchToFrame(eleFrame);

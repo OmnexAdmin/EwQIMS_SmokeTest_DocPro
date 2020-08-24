@@ -89,9 +89,12 @@ public class LevelCreationPage extends ProjectMethods {
 		Thread.sleep(2500);
 
 		click(eleClickOnSearch, "Search");
-		// Thread.sleep(12500);
-		WebElement eleRightClick = driver.findElementByXPath("//span[text()='" + levelName + "']");
-		rightClickAction(eleRightClick);
+        /*
+         *  WebElement eleRightClick =driver.findElementByXPath("//span[text()='" + levelName + "']");
+         * rightClickAction(eleRightClick);
+         */
+		rightClickOnSpecifiLevel(levelName);
+		
 		Thread.sleep(2500);
 		click(eleClickNew, "New button");
 		Thread.sleep(2500);
@@ -117,9 +120,12 @@ public class LevelCreationPage extends ProjectMethods {
 		type(eleEnterSearchCriteria, searchCriteria);
 		// Thread.sleep(2500);
 		click(eleClickOnSearch, "Search");
-		// Thread.sleep(12500);
-		WebElement eleRightClick = driver.findElementByXPath("//span[text()='" + levelName + "']");
-		rightClickAction(eleRightClick);
+		
+        /*
+         * WebElement eleRightClick = driver.findElementByXPath("//span[text()='" +
+         * levelName + "']"); rightClickAction(eleRightClick);
+         */
+		rightClickOnSpecifiLevel(levelName);
 		click(eleClickEdit, "Edit button");
 		switchToFrame(eleLevelsTreeFrame);
 		type(eleLevelName, editedLevelName);

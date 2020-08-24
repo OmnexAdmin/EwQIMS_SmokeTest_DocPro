@@ -95,9 +95,13 @@ public class ModuleAdmin extends ProjectMethods {
 		pressEnterKey(eleEnterCode);
 
 		Thread.sleep(3000);
-
-		WebElement eleVerifyRightsAssigned = driver.findElementByXPath("//td[text()='" + code + "']");
-	    verifyDisplayed(eleVerifyRightsAssigned,"Assigned User");
+	
+        /*
+         * WebElement eleVerifyRightsAssigned =
+         * driver.findElementByXPath("//td[text()='" + code + "']");
+         * verifyDisplayed(eleVerifyRightsAssigned,"Assigned User");
+         */
+		validateRightsAssignedtotheUser(code);
 		Thread.sleep(2000);
 		
 		return this;

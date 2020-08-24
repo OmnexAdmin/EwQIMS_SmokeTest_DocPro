@@ -1,6 +1,7 @@
 package main.java.suitePages;
 
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
@@ -91,10 +92,13 @@ public class UserCreationPage extends ProjectMethods {
             click(eleClickOktoAlertMessage, "OK button ");
             type(eleEntertheCodetoVerify, userCode[i]);
             eleEntertheCodetoVerify.sendKeys(Keys.ENTER);
-            
+            try {
             WebElement eleVerifyUser = driver.findElementByXPath("//td[text()='" + userCode[i] + "']");
             verifyDisplayed(eleVerifyUser, "Created user");
-            
+            }catch (WebDriverException e) {
+                reportStep("WebDriverException : " + e.getMessage(), "FAIL");
+                
+            }
          
            switchToDefaultFrame();
         }

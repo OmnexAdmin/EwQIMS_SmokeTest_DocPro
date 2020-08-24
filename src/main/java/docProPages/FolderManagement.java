@@ -552,9 +552,13 @@ switchToDefaultFrame();
 		Thread.sleep(3000);
 		type(eleEnterSearchCriteria, searchCriteria);
 		clickOnSearchicon();
-		
+		try {
 		WebElement eleClickOnLevel = driver.findElementByXPath("//span[text()='" + searchCriteria + "']");
-		click(eleClickOnLevel, "Level");
+		click(eleClickOnLevel, "Level");}
+		catch (WebDriverException e){
+	        
+	        reportStep("WebDriverException" + e.getMessage(), "FAIL");
+	    } 
 		
 		switchToRHSFrame();
 		Thread.sleep(3000);
