@@ -53,8 +53,6 @@ public class s1 extends main.java.CommonMethods.ProjectMethods {
 
 		switch (TestcaseNumber) {
 
-		
-		
          case "TC001":
            
            startApp(browserName);
@@ -72,10 +70,9 @@ public class s1 extends main.java.CommonMethods.ProjectMethods {
 
 		   case "TC003":
 		    
-		   
 		    //Create the User into EwQIMS and validate the user is saved
 		       startApp(browserName);
-		       
+		       reportStep("The element : is clicked ", "PASS");
 		     new LoginPage(driver, test)
 			.login(userName, passWord)
 			.clickOnUsersTab()
@@ -142,8 +139,6 @@ public class s1 extends main.java.CommonMethods.ProjectMethods {
 			
 			//Set No access for the site and Set Attach rights and Full access for the created group
 
-		   
-		    
 			new HomePage(driver, test)
 	         .clickOnSetupTab();
 			new FolderManagement(driver, test)
@@ -186,9 +181,7 @@ public class s1 extends main.java.CommonMethods.ProjectMethods {
 		    break; 
 			
 		case "TC006":  
-		    
-		    
-		    
+		  
 		    //Creation of users by module admin
 		    startApp(browserName);
 		  new LoginPage(driver, test)
@@ -208,8 +201,6 @@ public class s1 extends main.java.CommonMethods.ProjectMethods {
             .createGroup(groupName, userCode[4]);
 		   
 		  //Create Route
-		  
-		    
 		  
 		   new DocProAdminHomePage(driver, test)
 		   .clickOnRoutesMenu()
@@ -238,17 +229,13 @@ public class s1 extends main.java.CommonMethods.ProjectMethods {
             .clickonDocumentstab()
             .clickOnDocumentsMenu() 
             .reviseDocument(levelName,prefix, documentNumber,attachment, reasonForRequest, changesRequired);
-            
-             
-		    
+          
 		 break;
 		 
 		case "TC007":
 		    startApp(browserName);
 		    for (int i = 0; i < 2; i++) {
-		 
-         
-            //Set Doc Pro as Landing Page to the created user
+		 //Set Doc Pro as Landing Page to the created user
             new LoginPage(driver, test)
             .login(approverName[i], passWord)
             .clickOnUsersTab()
@@ -267,17 +254,17 @@ public class s1 extends main.java.CommonMethods.ProjectMethods {
             .requestsNeedingApproval(documentName, approverPwd, newApproverPwd, confirmApproverPwd);
 		  
            if(i==0) {
-               new HomePage(driver, test)
+               
+        	   new HomePage(driver, test)
                .logOut();
                
            }else {
-               new DocProAdminHomePage(driver, test)
+               
+        	   new DocProAdminHomePage(driver, test)
                .clickonDocumentstab()
                .clickOnDocumentsMenu()
                .validateDocumentPublished(levelName,prefix, documentNumber, documentName, revision, docOwner);
-       
-               
-            
+         
            }
                
 		    
