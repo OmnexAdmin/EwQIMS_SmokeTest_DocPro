@@ -3,18 +3,18 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="main.java.MultiTestData.MultipleParentLevelCreation">
+      <class name="endToEndScenarios.s1">
         <methods>
           <include name="beforeTest"/>
           <include name="afterMethod"/>
           <include name="setData"/>
           <include name="beforeSuite"/>
+          <include name="login" invocation-numbers="0 1 2 3 4 5 6"/>
           <include name="afterSuite"/>
           <include name="afterTest"/>
           <include name="beforeMethod"/>
-          <include name="createParentLevels"/>
         </methods>
-      </class> <!-- main.java.MultiTestData.MultipleParentLevelCreation -->
+      </class> <!-- endToEndScenarios.s1 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

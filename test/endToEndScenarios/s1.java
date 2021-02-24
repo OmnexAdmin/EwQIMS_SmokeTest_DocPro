@@ -29,7 +29,6 @@ public class s1 extends main.java.CommonMethods.ProjectMethods {
 
 	@Test(dataProvider = "fetchData")
 	
-	
 
 	public void login(String TestcaseNumber, String Runmode, String Scenario, String userName, String passWord,
 			String userCount,String code, String fName, String lName, String eMail, String uName, String pwd, String confirmPassword,String levelName, String prefix, String reviewDue, String searchCriteria,
@@ -41,8 +40,8 @@ public class s1 extends main.java.CommonMethods.ProjectMethods {
 	    String[] userRouteName= routeName.split("\\|");
 	    String[] approverName = userName.split("\\|");
 	    
-	    System.out.println("@test");
-	  //  startApp(browserName);
+	  
+	   //startApp(browserName);
 		testCaseName = Scenario;
 		testDescription = TestcaseNumber;
 		test = startTestCase(testCaseName, testDescription);
@@ -51,11 +50,13 @@ public class s1 extends main.java.CommonMethods.ProjectMethods {
 			throw new SkipException("Run mode set as No");
 		}
 
+		  System.out.println("code execute after if");
 		switch (TestcaseNumber) {
 
          case "TC001":
-           
+        	  
            startApp(browserName);
+          
            new LoginPage(driver, test)   
            .login(userName, passWord);
            break;
