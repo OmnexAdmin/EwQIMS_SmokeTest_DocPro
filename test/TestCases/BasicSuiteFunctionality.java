@@ -38,7 +38,7 @@ public class BasicSuiteFunctionality extends ProjectMethods {
 		if (!Runmode.contains("Y")) {
 			throw new SkipException("Run mode set as No");
 		}
-
+		//startApp(browserName);
 		switch (TestcaseNumber) {
 
 		case "TC001":

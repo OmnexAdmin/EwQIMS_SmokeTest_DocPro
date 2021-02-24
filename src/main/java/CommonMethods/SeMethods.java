@@ -82,7 +82,7 @@ public class SeMethods extends Reporter implements WdMethods {
             String path = System.getProperty("user.dir");
             if (browser.equalsIgnoreCase("chrome")) {
 
-                System.setProperty("webdriver.chrome.driver", path + "\\drivers\\chromedriverlatest.exe");
+                System.setProperty("webdriver.chrome.driver", path + "\\drivers\\chromedriver.exe");
                 if (headlessOption != null) {
 
                     if (headlessOption.contains("Y")) {
@@ -579,8 +579,10 @@ public class SeMethods extends Reporter implements WdMethods {
         long number = (long) Math.floor(Math.random() * 900000000L) + 10000000L;
         try {
             String path = System.getProperty("user.dir");
-            FileUtils.copyFile(driver.getScreenshotAs(OutputType.FILE),
-                    new File(path + "//reports//images//" + number + ".jpg"));
+            System.out.println(path);
+            FileUtils.copyFile(driver.getScreenshotAs(OutputType.FILE), new File
+            		
+            	(path + "//reports//images//" + number + ".jpg"));
 
         } catch (WebDriverException e) {
             System.out.println("The browser has been closed.");
